@@ -1,0 +1,31 @@
+{
+  "name": "simple.voter",
+  "version": "1.0.0",
+  "description": "A very simple voting app",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcusoftnet/simple.voter.git"
+  },
+  "keywords": [],
+  "author": "Marcus Hammarberg <marcusoftnet@gmail.com> (http://www.marcusoft.net)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/marcusoftnet/simple.voter/issues"
+  },
+  "homepage": "https://github.com/marcusoftnet/simple.voter#readme",
+  "dependencies": {
+    "co-monk": "^1.0.0",
+    "co-views": "^2.1.0",
+    "koa": "^2.2.0",
+    "koa-route": "^3.2.0",
+    "monk": "^4.0.0",
+    "swig": "^1.4.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
