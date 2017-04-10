@@ -19,9 +19,9 @@
   "homepage": "https://github.com/marcusoftnet/simple.voter#readme",
   "dependencies": {
     "co-monk": "^1.0.0",
-    "co-views": "^2.1.0",
     "koa": "^2.2.0",
     "koa-route": "^3.2.0",
+    "koa-views": "^6.0.1",
     "monk": "^4.0.0",
     "swig": "^1.4.2"
   },
