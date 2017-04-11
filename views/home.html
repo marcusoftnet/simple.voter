@@ -4,6 +4,12 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/spacelab/bootstrap.min.css" rel="stylesheet" integrity="sha384-L/tgI3wSsbb3f/nW9V6Yqlaw3Gj7mpE56LWrhew/c8MIhAYWZ/FNirA64AVkB5pI"
     crossorigin="anonymous">
+  <style>
+    .gi-2x { font-size: 2em; }
+    .gi-3x { font-size: 3em; }
+    .gi-4x { font-size: 4em; }
+    .gi-5x { font-size: 5em; }
+  </style>
   <title>Simple voter</title>
 </head>
 
@@ -34,16 +40,18 @@
     <div class="row">
       <div class="col-xs-4 col-md-6">{{ title }}</div>
       <div class="col-xs-3 col-md-2">
-        <a href="/{{_id}}/up"  class="btn btn-success" aria-label="Left Align">
-          <span class="glyphicon  glyphicon-thumbs-up" aria-hidden="true"></span> {{ upvotes }}
+        <a href="/{{_id}}/up" class="btn btn-success" aria-label="Left Align">
+          <span class="glyphicon glyphicon-thumbs-up gi-3x" aria-hidden="true"></span>
+          <span class="gi-3x">{{ upvotes }}</span>
         </a>
       </div>
       <div class="col-xs-3 col-md-2">
-        <a href="/{{_id}}/down"  class="btn btn-danger" aria-label="Left Align">
-          <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span> {{ downvotes }}
+        <a href="/{{_id}}/down" class="btn btn-danger" aria-label="Left Align">
+          <span class="glyphicon glyphicon-thumbs-down gi-3x" aria-hidden="true"></span>
+          <span class="gi-3x">{{ downvotes }}</span>
         </a>
       </div>
-      <div class="col-xs-2 col-md-2">{{ score }}</div>
+      <div class="col-xs-2 col-md-2 gi-3x">{{ score }}</div>
     </div>
     <div class="row">
       <hr />

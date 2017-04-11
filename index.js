@@ -16,7 +16,6 @@ router.get('/', async (ctx) => {
   await ctx.render('home.html', { topics: await db.Topics.findAll() })
 })
 router.get('/:id/up', async (ctx) => {
-  console.log("UP " + ctx.params.id)
   await db.Topics.upvote(ctx.params.id)
   ctx.redirect('/')
 })
