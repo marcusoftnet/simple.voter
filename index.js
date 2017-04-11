@@ -16,16 +16,14 @@ app.use(views('./views', { map: { html: 'handlebars' } }))
 
 
 router.get('/', async (ctx) => {
-  let topics = await db.Topics.findAll();
-  console.log(topics)
-  await ctx.render('home.html', { topics: topics })
+  await ctx.render('home.html', { topics: await db.Topics.findAll() })
 })
-router.get('/:id/up', async (ctx, id) => {
-  console.log('UP for ' + id)
+router.get('/:slug/up', async (ctx, slug) => {
+  await db.Topics.upvote(slug)
   ctx.redirect('/')
 })
-router.get('/:id/down', async (ctx, id) => {
-  console.log('DOWN for ' + id)
+router.get('/:slug/down', async (ctx, slug) => {
+  await db.Topics.downvote(slug)
   ctx.redirect('/')
 })
 
