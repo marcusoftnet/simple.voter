@@ -1,29 +1,27 @@
-const Koa = require('koa');
-const Router = require('koa-router');
-const bodyParser = require('koa-bodyparser');
-const handleErrors = require('./middlewares/handleErrors');
-const config = require('config');
-const db = require('./db');
+const Koa = require('koa')
+const Router = require('koa-router')
+const handleErrors = require('./middlewares/handleErrors')
+const config = require('config')
+const db = require('./db')
 const views = require('koa-views')
 
-const app = new Koa();
-const router = new Router();
+const app = new Koa()
+const router = new Router()
 
 // middlewares
-app.use(handleErrors);
-app.use(bodyParser());
+app.use(handleErrors)
 app.use(views('./views', { map: { html: 'handlebars' } }))
-
 
 router.get('/', async (ctx) => {
   await ctx.render('home.html', { topics: await db.Topics.findAll() })
 })
-router.get('/:slug/up', async (ctx, slug) => {
-  await db.Topics.upvote(slug)
+router.get('/:id/up', async (ctx) => {
+  console.log("UP " + ctx.params.id)
+  await db.Topics.upvote(ctx.params.id)
   ctx.redirect('/')
 })
-router.get('/:slug/down', async (ctx, slug) => {
-  await db.Topics.downvote(slug)
+router.get('/:id/down', async (ctx) => {
+  await db.Topics.downvote(ctx.params.id)
   ctx.redirect('/')
 })
 

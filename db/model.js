@@ -1,35 +1,33 @@
+const ObjectId = require('mongodb').ObjectID
+
 class Model {
   constructor(db, collectionName) {
-    this.name = collectionName;
-    this.db = db;
+    this.name = collectionName
+    this.db = db
   }
 
-  async downvote(slug) {
-    await this.vote(slug, { up: 0, down: 1 })
-  }
-
-  async upvote(slug) {
-    await this.vote(slug, { up: 1, down: 0 })
-  }
-
-  async vote(slug, voteOptions) {
-    let query = { slug: slug }
+  async upvote(id) { await this.vote(id, { up: 1, down: 0 }) }
+  async downvote(id) { await this.vote(id, { up: 0, down: 1 }) }
+  async vote(id, voteOptions) {
+    let query = { _id: ObjectId(id) }
     const result = null
 
     try {
-      const topicToUpdate = await this.db.collection(this.name).findOne(query)
-
-      topicToUpdate.plusvotes = topicToUpdate.plusvotes + voteOptions.up
-      topicToUpdate.minusvotes = topicToUpdate.minusvotes + voteOptions.down
-      topicToUpdate.score = topicToUpdate.plusvotes - topicToUpdate.minusvotes
+      const topic = await this.db.collection(this.name).findOne(query)
+      let topicToUpdate = this.calculateNewVotes(topic, voteOptions)
 
       result = await this.db.collection(this.name).updateOne(query, topicToUpdate)
     }
-    catch (ex) {
-      throw new Error('Db vote error')
-    }
-    finally {
-      return result;
+    catch (ex) { throw new Error('Db vote error') }
+    finally    { return result }
+  }
+
+  calculateNewVotes(topic, vote){
+    return {
+      title : topic.title,
+      upvotes : topic.upvotes + vote.up,
+      downvotes : topic.downvotes + vote.down,
+      score : topic.upvotes - topic.downvotes
     }
   }
 
@@ -38,17 +36,13 @@ class Model {
     try {
       const result = await this.db.collection(this.name)
         .find()
-        .sort({ score: 1 })
+        .sort({ score: -1 })
 
       topics = result.toArray()
     }
-    catch (ex) {
-      throw new Error('Db findAll error')
-    }
-    finally {
-      return topics
-    }
+    catch (ex) { throw new Error('Db findAll error') }
+    finally    { return topics }
   }
 }
 
-module.exports = Model;
+module.exports = Model
