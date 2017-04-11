@@ -18,12 +18,13 @@
   },
   "homepage": "https://github.com/marcusoftnet/simple.voter#readme",
   "dependencies": {
-    "co-monk": "^1.0.0",
+    "config": "^1.25.1",
     "koa": "^2.2.0",
-    "koa-route": "^3.2.0",
-    "koa-views": "^6.0.1",
-    "monk": "^4.0.0",
-    "swig": "^1.4.2"
+    "koa-bodyparser": "^4.2.0",
+    "koa-router": "^7.1.1",
+    "mongodb": "^2.2.25",
+    "handlebars": "^4.0.6",
+    "koa-views": "^6.0.1"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"
