@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "description": "A very simple voting app",
   "main": "index.js",
+  "engines": {
+    "node": "7.x"
+  },
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node index.js",
+    "deploy": "git push heroku master"
   },
   "repository": {
     "type": "git",
