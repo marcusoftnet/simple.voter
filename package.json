@@ -8,6 +8,7 @@
   },
   "scripts": {
     "start": "node index.js",
+    "dev": "nodemon index.js",
     "lint": "standard",
     "lint:fix": "standard --fix",
     "deploy": "npm-run-all lint:fix deploy:*",
@@ -27,12 +28,13 @@
   "homepage": "https://github.com/marcusoftnet/simple.voter#readme",
   "dependencies": {
     "config": "^1.25.1",
+    "handlebars": "^4.0.6",
     "koa": "^2.2.0",
     "koa-bodyparser": "^4.2.0",
     "koa-router": "^7.1.1",
-    "mongodb": "^2.2.25",
-    "handlebars": "^4.0.6",
-    "koa-views": "^6.0.1"
+    "koa-static": "^3.0.0",
+    "koa-views": "^6.0.1",
+    "mongodb": "^2.2.25"
   },
   "devDependencies": {
     "nodemon": "^1.11.0",
