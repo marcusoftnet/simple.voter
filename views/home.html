@@ -39,20 +39,20 @@
     </div>
     {{#topics}}
     <div class="row">
-      <div class="col-xs-4 col-md-6">{{ title }}</div>
-      <div class="col-xs-3 col-md-2">
+      <div class="col-xs-6 col-md-6 font-15x">{{ title }}</div>
+      <div class="col-xs-2 col-md-2">
         <a href="/{{_id}}/up" class="btn btn-success votelink" aria-label="Left Align">
-          <span class="glyphicon glyphicon-thumbs-up gi-3x" aria-hidden="true"></span>
-          <span class="gi-3x">{{ upvotes }}</span>
+          <span class="glyphicon glyphicon-thumbs-up font-2x" aria-hidden="true"></span>
+          <span class="font-2x">{{ upvotes }}</span>
         </a>
       </div>
-      <div class="col-xs-3 col-md-2">
+      <div class="col-xs-2 col-md-2">
         <a href="/{{_id}}/down" class="btn btn-danger votelink" aria-label="Left Align">
-          <span class="glyphicon glyphicon-thumbs-down gi-3x" aria-hidden="true"></span>
-          <span class="gi-3x">{{ downvotes }}</span>
+          <span class="glyphicon glyphicon-thumbs-down font-2x" aria-hidden="true"></span>
+          <span class="font-2x">{{ downvotes }}</span>
         </a>
       </div>
-      <div class="col-xs-2 col-md-2 gi-3x">{{ score }}</div>
+      <div class="col-xs-2 col-md-2 font-2x">{{ score }}</div>
     </div>
     <div class="row">
       <hr />
