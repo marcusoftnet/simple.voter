@@ -10,14 +10,16 @@ class Model {
   async downvote (id) { await this.vote(id, { up: 0, down: 1 }) }
   async vote (id, voteOptions) {
     let query = { _id: ObjectId(id) }
-    const result = null
+    let result = null
 
     try {
       const topic = await this.db.collection(this.name).findOne(query)
       let topicToUpdate = this.calculateNewVotes(topic, voteOptions)
 
       result = await this.db.collection(this.name).updateOne(query, topicToUpdate)
-    } catch (ex) { throw new Error('Db vote error') } finally { return result }
+    } catch (ex) { throw new Error('Db vote error') }
+
+    return result
   }
 
   calculateNewVotes (topic, vote) {
@@ -37,7 +39,9 @@ class Model {
         .sort({ score: -1 })
 
       topics = result.toArray()
-    } catch (ex) { throw new Error('Db findAll error') } finally { return topics }
+    } catch (ex) { throw new Error('Db findAll error') }
+
+    return topics
   }
 }
 
