@@ -1,6 +1,13 @@
-.font-15x { font-size: 1.5em; }
-.font-2x { font-size: 2em; }
-.font-3x { font-size: 3em; }
+.topictitle  { font-size: 1em; }
+.buttonIcon  { font-size: 1em; }
+.noVotesText { font-size: 1em; }
+
+@media (min-width: 960px){
+	.topictitle  { font-size: 1.5em; }
+	.buttonIcon  { font-size: 2em; }
+	.noVotesText { font-size: 2em; }
+}
+
 
 .loader {
 	width: 100%;
