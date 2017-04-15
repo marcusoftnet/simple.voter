@@ -10,7 +10,7 @@
     "start": "node index.js",
     "lint": "standard",
     "lint:fix": "standard --fix",
-    "deploy": "npm-run-all lint:fix, deploy:*",
+    "deploy": "npm-run-all lint:fix deploy:*",
     "deploy:github": "git push",
     "deploy:heroku": "git push heroku master"
   },
