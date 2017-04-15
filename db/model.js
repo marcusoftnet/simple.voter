@@ -23,12 +23,13 @@ class Model {
   }
 
   calculateNewVotes (topic, vote) {
-    return {
+    let result = {
       title: topic.title,
       upvotes: topic.upvotes + vote.up,
-      downvotes: topic.downvotes + vote.down,
-      score: topic.upvotes - topic.downvotes
+      downvotes: topic.downvotes + vote.down
     }
+    result.score = result.upvotes - result.downvotes
+    return result
   }
 
   async findAll () {

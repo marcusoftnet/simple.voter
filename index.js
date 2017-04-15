@@ -25,7 +25,6 @@ router.get('/:id/down', async (ctx) => {
   await db.Topics.downvote(ctx.params.id)
   ctx.redirect('/')
 })
-
 app.use(router.routes())
 
 db
