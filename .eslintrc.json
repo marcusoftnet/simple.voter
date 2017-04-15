@@ -12,7 +12,7 @@
         "sourceType": "module"
     },
     "rules": {
-        "no-const-assign": "warn",
+        "no-const-assign": "error",
         "no-this-before-super": "warn",
         "no-undef": "warn",
         "no-unreachable": "warn",

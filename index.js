@@ -24,15 +24,15 @@ router.get('/:id/down', async (ctx) => {
   ctx.redirect('/')
 })
 
-app.use(router.routes());
+app.use(router.routes())
 
 db
   .connect()
   .then(() => {
     app.listen(config.port, () => {
-      console.info(`Listening to http://localhost:${config.port}`);
-    });
+      console.info(`Listening to http://localhost:${config.port}`)
+    })
   })
   .catch((err) => {
-    console.error('ERR:', err);
-  });
+    console.error('ERR:', err)
+  })

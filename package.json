@@ -8,7 +8,11 @@
   },
   "scripts": {
     "start": "node index.js",
-    "deploy": "git push heroku master"
+    "lint": "standard",
+    "lint:fix": "standard --fix",
+    "deploy": "npm-run-all deploy:*",
+    "deploy:github": "git push",
+    "deploy:heroku": "git push heroku master"
   },
   "repository": {
     "type": "git",
@@ -31,6 +35,8 @@
     "koa-views": "^6.0.1"
   },
   "devDependencies": {
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "npm-run-all": "^4.0.2",
+    "standard": "^10.0.2"
   }
 }
