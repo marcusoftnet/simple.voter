@@ -1,0 +1,1 @@
+mongoimport -h localhost:27017 -d simplevoter -c topics --jsonArray --drop -v --file ./seed/itspring2017.json
